@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".business.college.CollegeActivity">
+
+    <TextView
+        android:id="@+id/tv_college_news"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="学院动态"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_library"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="图书馆"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_hou_qin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="后勤信息"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_jiao_wu_chu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="教务处"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_xue_sheng_chu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="学生处"
+        android:textColor="#fff" />
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".business.schoolNews.SchoolNewsActivity">
+
+    <TextView
+        android:id="@+id/tv_new_topic"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="最新公告"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_jiaoxue_rili"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="教学日历"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_lost_and_found"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="失物招领"
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/tv_student_suqiu"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="学生诉求"
+        android:textColor="#fff" />
+</LinearLayout>
