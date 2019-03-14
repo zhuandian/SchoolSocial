@@ -1,5 +1,6 @@
 package com.zhuandian.schoolsocial.business.studentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,13 +24,13 @@ public class StudentActivity extends BaseActivity {
     }
 
 
-
     @OnClick({R.id.tv_new_student_info, R.id.tv_school_map, R.id.tv_student_grade, R.id.tv_search_kebiao, R.id.tv_user_info})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_new_student_info:
                 break;
             case R.id.tv_school_map:
+                startActivity(new Intent(StudentActivity.this, SchoolMapActivity.class));
                 break;
             case R.id.tv_student_grade:
                 break;
