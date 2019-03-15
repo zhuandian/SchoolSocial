@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="丢"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/tv_type"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        tools:text="物理系张小三丢失U盘" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignLeft="@+id/tv_title"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/tv_type"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        tools:text="一个银白色的dafsdfsfasdfsdafsdafasdfdsa飞fdsa sdfad第三方阿斯蒂芬大大声道阿道夫大声道大师傅发顺丰所大厦法定发" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="2018/12/12"
+        android:textColor="#999999"
+        android:textSize="12sp" />
+</RelativeLayout>

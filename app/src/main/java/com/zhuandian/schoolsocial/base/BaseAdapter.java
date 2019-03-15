@@ -18,7 +18,7 @@ public abstract class BaseAdapter<T, K extends BaseViewHolder> extends RecyclerV
     private List<T> mDatas;
     private Context mContext;
 
-    public BaseAdapter(List<T> mDatas, Context context) {
+    public BaseAdapter(Context context,List<T> mDatas) {
         this.mDatas = mDatas;
         this.mContext = context;
     }

@@ -35,6 +35,11 @@ public class StudentGradeActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
+    }
+
+
+    @OnClick(R.id.tv_submit)
+    public void onClick() {
         BmobQuery<ScoreEntity> bmobQuery = new BmobQuery<>();
         bmobQuery.addWhereEqualTo("userName", etUsername.getText().toString())
                 .findObjects(new FindListener<ScoreEntity>() {
@@ -42,15 +47,10 @@ public class StudentGradeActivity extends BaseActivity {
                     public void done(List<ScoreEntity> list, BmobException e) {
                         if (e == null) {
                             tvScore.setText(list.get(0).getScores());
+                        } else {
+                            tvScore.setText("暂时未查到该学生的成绩信息...");
                         }
                     }
                 });
-
-
-    }
-
-
-    @OnClick(R.id.tv_submit)
-    public void onClick() {
     }
 }

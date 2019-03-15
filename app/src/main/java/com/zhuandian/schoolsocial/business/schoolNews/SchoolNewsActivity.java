@@ -1,5 +1,6 @@
 package com.zhuandian.schoolsocial.business.schoolNews;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -42,6 +43,7 @@ public class SchoolNewsActivity extends BaseActivity {
             case R.id.tv_jiaoxue_rili:
                 break;
             case R.id.tv_lost_and_found:
+                startActivity(new Intent(SchoolNewsActivity.this, LostAndFoundActivity.class));
                 break;
             case R.id.tv_student_suqiu:
                 break;

@@ -33,10 +33,13 @@ public class StudentActivity extends BaseActivity {
                 startActivity(new Intent(StudentActivity.this, SchoolMapActivity.class));
                 break;
             case R.id.tv_student_grade:
+                startActivity(new Intent(StudentActivity.this, StudentGradeActivity.class));
                 break;
             case R.id.tv_search_kebiao:
+                startActivity(new Intent(StudentActivity.this, SearchKeBiaoActivity.class));
                 break;
             case R.id.tv_user_info:
+                startActivity(new Intent(StudentActivity.this, UserInfoActivity.class));
                 break;
         }
     }

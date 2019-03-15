@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_release_lost_and_found_head_bg" />
+
+    <EditText
+        android:id="@+id/ed_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edittext_background"
+        android:hint="请输入丢失/捡到物品名称"
+        android:paddingLeft="10dp"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/ed_content"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext_background"
+        android:gravity="top"
+        android:hint="简单描述丢失/捡到物品"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:textSize="14sp" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_lost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="丢失物品"
+            android:textColor="@color/color_69" />
+
+        <RadioButton
+            android:id="@+id/rb_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="捡到物品"
+            android:textColor="@color/color_99" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_release"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="30dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="新建发布"
+        android:textColor="@color/white" />
+</LinearLayout>
