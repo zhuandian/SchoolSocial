@@ -46,6 +46,7 @@ public class SchoolNewsActivity extends BaseActivity {
                 startActivity(new Intent(SchoolNewsActivity.this, LostAndFoundActivity.class));
                 break;
             case R.id.tv_student_suqiu:
+                startActivity(new Intent(SchoolNewsActivity.this, StudentSuQiuActivity.class));
                 break;
         }
     }

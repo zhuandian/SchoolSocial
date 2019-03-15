@@ -1,15 +1,55 @@
 package com.zhuandian.schoolsocial.business.schoolNews;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zhuandian.schoolsocial.R;
+import com.zhuandian.schoolsocial.base.BaseActivity;
+import com.zhuandian.schoolsocial.entity.FeedBackEntity;
+import com.zhuandian.schoolsocial.entity.UserEntity;
 
-public class StudentSuQiuActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+
+public class StudentSuQiuActivity extends BaseActivity {
+
+
+    @BindView(R.id.et_feedback)
+    EditText etFeedback;
+    @BindView(R.id.apb_commit)
+    TextView apbCommit;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_su_qiu);
+    protected int getLayoutId() {
+        return R.layout.activity_student_su_qiu;
+    }
+
+    @Override
+    protected void setUpView() {
+
+    }
+
+
+    @OnClick(R.id.apb_commit)
+    public void onClick() {
+
+        FeedBackEntity feedBackEntity = new FeedBackEntity();
+
+        feedBackEntity.setUserName(BmobUser.getCurrentUser(UserEntity.class).getNikeName());
+        feedBackEntity.setUserFeedBack(etFeedback.getText().toString());
+        feedBackEntity.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                if (e == null) {
+                    Toast.makeText(StudentSuQiuActivity.this, "提交成功...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
