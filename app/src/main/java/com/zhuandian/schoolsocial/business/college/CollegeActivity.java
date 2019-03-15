@@ -51,6 +51,7 @@ public class CollegeActivity extends BaseActivity {
             case R.id.tv_jiao_wu_chu:
                 break;
             case R.id.tv_xue_sheng_chu:
+                startActivity(new Intent(CollegeActivity.this, XueShengChuActivity.class));
                 break;
         }
     }

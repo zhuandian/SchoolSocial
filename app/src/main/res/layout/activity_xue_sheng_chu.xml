@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".business.college.XueShengChuActivity">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/et_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_edittext_bg"
+        android:gravity="top"
+        android:hint="输入您要向学生会反应的情况..."
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/apb_commit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="反应情况"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+</LinearLayout>

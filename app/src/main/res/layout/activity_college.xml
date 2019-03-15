@@ -44,7 +44,8 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="后勤信息"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_jiao_wu_chu"
@@ -57,7 +58,8 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="教务处"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_xue_sheng_chu"

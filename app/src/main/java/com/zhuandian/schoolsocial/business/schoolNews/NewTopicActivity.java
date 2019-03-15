@@ -4,12 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.zhuandian.schoolsocial.R;
+import com.zhuandian.schoolsocial.base.WebPageActivity;
 
-public class NewTopicActivity extends AppCompatActivity {
+public class NewTopicActivity extends WebPageActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_topic);
+    public void loadUrl() {
+        wvPage.loadUrl("http://www.cnu.edu.cn/xyxx/xygg/41542.htm");
     }
 }

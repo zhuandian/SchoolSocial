@@ -39,6 +39,7 @@ public class SchoolNewsActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_new_topic:
+                startActivity(new Intent(SchoolNewsActivity.this, NewTopicActivity.class));
                 break;
             case R.id.tv_jiaoxue_rili:
                 break;
