@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:hint="输入用户名查询成绩"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_submit"
@@ -25,11 +26,13 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="点击查询"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_score"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="成绩分布：\n\n60分以下：32人 \n60-80人数： 15人 \n80-90分： 5人\n90分以上：2人" />
 </LinearLayout>
