@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.LocationClient;
@@ -18,12 +19,16 @@ import com.zhuandian.schoolsocial.business.schoolNews.SchoolNewsActivity;
 import com.zhuandian.schoolsocial.business.studentActivity.StudentActivity;
 import com.zhuandian.schoolsocial.utils.MyLocationListener;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
     public LocationClient mLocationClient = null;
     private MyLocationListener myListener = new MyLocationListener();
     private static final int BAIDU_READ_PHONE_STATE = 100;
+    @BindView(R.id.tv_info)
+    TextView tvInfo;
+
 
     @Override
     protected int getLayoutId() {
@@ -43,6 +48,14 @@ public class MainActivity extends BaseActivity {
         } else {
             initBaiduMap();
         }
+        myListener.setLocationSuccess(new MyLocationListener.onLocationSuccess() {
+            @Override
+            public void onSuccess(String location) {
+                tvInfo.setText(String.format("根据我们的系统定位，您现在位于\n%s\n，系统根据您的地理位置，为您做出了相应的内容推荐，请您尽情享用...", "北京市海淀区中关村科技大厦15号"));
+            }
+        });
+
+
     }
 
     private void initBaiduMap() {
