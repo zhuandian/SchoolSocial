@@ -10,6 +10,6 @@ public class CollegeNewsActivity extends WebPageActivity {
 
     @Override
     public void loadUrl() {
-        wvPage.loadUrl("http://www.phy.sdu.edu.cn/");
+        wvPage.loadUrl("https://www.nuist.edu.cn/875/list.htm");
     }
 }

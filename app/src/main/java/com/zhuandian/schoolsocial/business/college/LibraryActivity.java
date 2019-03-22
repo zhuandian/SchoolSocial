@@ -10,6 +10,6 @@ public class LibraryActivity extends WebPageActivity {
 
     @Override
     public void loadUrl() {
-        wvPage.loadUrl("http://www.lib.sdu.edu.cn/index.html");
+        wvPage.loadUrl("http://lib.nuist.edu.cn/");
     }
 }

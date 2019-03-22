@@ -1,7 +1,11 @@
 package com.zhuandian.schoolsocial.base;
 
 
+import android.net.http.SslError;
+import android.os.Build;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -24,8 +28,11 @@ abstract public class WebPageActivity extends BaseActivity {
     protected void setUpView() {
         wvPage.getSettings().setJavaScriptEnabled(true);
         wvPage.getSettings().setDomStorageEnabled(true);
-        wvPage.setWebViewClient(new WebViewClient());
+        wvPage.setWebViewClient(new MyWebViewClient());
         wvPage.setWebChromeClient(new WebChromeClient());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            wvPage.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
         loadUrl();
     }
 
@@ -37,5 +44,13 @@ abstract public class WebPageActivity extends BaseActivity {
             wvPage.goBack();
         else
             super.onBackPressed();
+    }
+
+    class MyWebViewClient extends WebViewClient {
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//            super.onReceivedSslError(view, handler, error);
+            handler.proceed();
+        }
     }
 }

@@ -10,6 +10,6 @@ public class NewTopicActivity extends WebPageActivity {
 
     @Override
     public void loadUrl() {
-        wvPage.loadUrl("http://www.cnu.edu.cn/xyxx/xygg/41542.htm");
+        wvPage.loadUrl("https://www.nuist.edu.cn");
     }
 }
