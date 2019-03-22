@@ -30,9 +30,6 @@ abstract public class WebPageActivity extends BaseActivity {
         wvPage.getSettings().setDomStorageEnabled(true);
         wvPage.setWebViewClient(new MyWebViewClient());
         wvPage.setWebChromeClient(new WebChromeClient());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            wvPage.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-        }
         loadUrl();
     }
 
@@ -51,6 +48,9 @@ abstract public class WebPageActivity extends BaseActivity {
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
 //            super.onReceivedSslError(view, handler, error);
             handler.proceed();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                wvPage.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            }
         }
     }
 }
