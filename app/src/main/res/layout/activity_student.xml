@@ -9,7 +9,6 @@
 
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/tv_new_student_info"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -20,7 +19,8 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="新生通告"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_school_map"
@@ -33,7 +33,8 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="校园地图"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/tv_student_grade"
