@@ -11,6 +11,7 @@ import com.zhuandian.schoolsocial.MainActivity;
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
 import com.zhuandian.schoolsocial.entity.UserEntity;
+import com.zhuandian.schoolsocial.utils.Constant;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -61,10 +62,11 @@ public class LoginActivity extends BaseActivity {
             UserEntity userEntity = new UserEntity();
             userEntity.setUsername(userName);
             userEntity.setPassword(passWord);
-            userEntity.login(new SaveListener<Object>() {
+            userEntity.login(new SaveListener<UserEntity>() {
                 @Override
-                public void done(Object o, BmobException e) {
+                public void done(UserEntity userEntity, BmobException e) {
                     if (e == null) {
+                        Constant.ROLE_ID = userEntity.getRoleId();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
                     } else {
