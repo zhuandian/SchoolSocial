@@ -93,6 +93,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onSuccess(String location) {
 //                tvInfo.setText(String.format("根据我们的系统定位，您现在位于\n%s\n，系统根据您的地理位置，为您做出了相应的内容推荐，请您尽情享用...", location));
+                Toast.makeText(MainActivity.this, String.format("根据我们的系统定位，您现在位于\n%s\n，系统根据您的地理位置，为您做出了相应的内容推荐，请您尽情享用...", location), Toast.LENGTH_SHORT).show();
             }
         });
     }
