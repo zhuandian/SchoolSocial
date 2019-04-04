@@ -10,6 +10,15 @@ import cn.bmob.v3.BmobUser;
 public class UserEntity extends BmobUser {
     private String nikeName;
     private String userInfo;
+    private int roleId;  //1.老师，2学生  根据角色不同在首页推荐不同的内容。
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
 
 
     public String getNikeName() {

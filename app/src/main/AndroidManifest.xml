@@ -65,7 +65,7 @@
         <activity android:name=".business.studentActivity.SearchKeBiaoActivity" />
         <activity android:name=".business.studentActivity.UserInfoActivity" />
         <activity android:name=".business.schoolNews.NewTopicActivity" />
-        <activity android:name=".business.schoolNews.JiaoXueRiLiActivity" />
+        <activity android:name=".business.schoolNews.SearchTopicActivity" />
         <activity android:name=".business.schoolNews.LostAndFoundActivity" />
         <activity android:name=".business.schoolNews.StudentSuQiuActivity" />
         <activity android:name=".business.college.CollegeActivity" />

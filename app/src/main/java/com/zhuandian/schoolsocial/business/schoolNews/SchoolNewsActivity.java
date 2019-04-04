@@ -17,8 +17,8 @@ public class SchoolNewsActivity extends BaseActivity {
 
     @BindView(R.id.tv_new_topic)
     TextView tvNewTopic;
-    @BindView(R.id.tv_jiaoxue_rili)
-    TextView tvJiaoxueRili;
+    @BindView(R.id.tv_search_topic)
+    TextView tvSearchTopic;
     @BindView(R.id.tv_lost_and_found)
     TextView tvLostAndFound;
     @BindView(R.id.tv_student_suqiu)
@@ -35,13 +35,14 @@ public class SchoolNewsActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_new_topic, R.id.tv_jiaoxue_rili, R.id.tv_lost_and_found, R.id.tv_student_suqiu})
+    @OnClick({R.id.tv_new_topic, R.id.tv_search_topic, R.id.tv_lost_and_found, R.id.tv_student_suqiu})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_new_topic:
                 startActivity(new Intent(SchoolNewsActivity.this, NewTopicActivity.class));
                 break;
-            case R.id.tv_jiaoxue_rili:
+            case R.id.tv_search_topic:
+                startActivity(new Intent(SchoolNewsActivity.this, SearchTopicActivity.class));
                 break;
             case R.id.tv_lost_and_found:
                 startActivity(new Intent(SchoolNewsActivity.this, LostAndFoundActivity.class));
