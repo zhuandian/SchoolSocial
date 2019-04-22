@@ -76,6 +76,9 @@
         <activity android:name=".business.college.XueShengChuActivity" />
         <activity android:name=".base.WebPageActivity"></activity>
         <activity android:name=".business.schoolNews.ReleaseLostAndFoundActivity"/>
+        <activity android:name=".business.schoolNews.schoolsocial.HeartShareItemActivity"/>
+        <activity android:name=".business.schoolNews.schoolsocial.SchoolSocialActivity"/>
+        <activity android:name=".business.schoolNews.schoolsocial.NewShareActivity"/>
 
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote"> </service>
         <!--百度地图AK-->

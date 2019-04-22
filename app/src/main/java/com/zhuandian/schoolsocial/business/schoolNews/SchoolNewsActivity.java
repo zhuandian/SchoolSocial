@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
+import com.zhuandian.schoolsocial.business.schoolNews.schoolsocial.SchoolSocialActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,7 +36,7 @@ public class SchoolNewsActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_new_topic, R.id.tv_search_topic, R.id.tv_lost_and_found, R.id.tv_student_suqiu})
+    @OnClick({R.id.tv_school_social,R.id.tv_new_topic, R.id.tv_search_topic, R.id.tv_lost_and_found, R.id.tv_student_suqiu})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_new_topic:
@@ -49,6 +50,9 @@ public class SchoolNewsActivity extends BaseActivity {
                 break;
             case R.id.tv_student_suqiu:
                 startActivity(new Intent(SchoolNewsActivity.this, StudentSuQiuActivity.class));
+                break;
+            case R.id.tv_school_social:
+                startActivity(new Intent(SchoolNewsActivity.this, SchoolSocialActivity.class));
                 break;
         }
     }
