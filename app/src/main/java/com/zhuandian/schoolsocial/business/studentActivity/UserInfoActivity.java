@@ -27,6 +27,8 @@ public class UserInfoActivity extends BaseActivity {
     EditText etUserDesc;
     @BindView(R.id.tv_submit)
     TextView tvSubmit;
+    @BindView(R.id.et_user_password)
+    EditText edPassword;
     private UserEntity userEntity;
 
     @Override
@@ -47,6 +49,7 @@ public class UserInfoActivity extends BaseActivity {
         if (TextUtils.isEmpty(etNickName.getText().toString()) || TextUtils.isEmpty(etUserDesc.getText().toString())) {
             userEntity.setNikeName(etNickName.getText().toString());
             userEntity.setUserInfo(etUserDesc.getText().toString());
+            userEntity.setPassword(edPassword.getText().toString());
             userEntity.update(new UpdateListener() {
                 @Override
                 public void done(BmobException e) {

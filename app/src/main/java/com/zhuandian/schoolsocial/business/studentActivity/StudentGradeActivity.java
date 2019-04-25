@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
 import com.zhuandian.schoolsocial.entity.PersonalScoreEntity;
+import com.zhuandian.schoolsocial.entity.UserEntity;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -44,6 +46,7 @@ public class StudentGradeActivity extends BaseActivity {
                     String scores = list.get(0).getScores();
                     String[] scoresArray = scores.split("-");
                     StringBuilder stringBuilder = new StringBuilder();
+                    stringBuilder.append(BmobUser.getCurrentUser(UserEntity.class).getUsername() + "\n");
                     for (String score : scoresArray) {
                         stringBuilder.append(score)
                                 .append("\n");

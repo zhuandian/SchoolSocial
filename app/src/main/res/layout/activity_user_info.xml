@@ -31,6 +31,13 @@
         android:layout_margin="20dp"
         android:hint="一句话简短介绍一下自己"
         android:textSize="15sp" />
+    <EditText
+        android:id="@+id/et_user_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="修改密码"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_submit"
