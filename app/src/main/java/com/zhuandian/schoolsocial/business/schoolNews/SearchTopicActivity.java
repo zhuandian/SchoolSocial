@@ -1,6 +1,7 @@
 package com.zhuandian.schoolsocial.business.schoolNews;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -52,7 +53,16 @@ public class SearchTopicActivity extends BaseActivity {
             @Override
             public void done(List<TopicEntity> list, BmobException e) {
                 if (e == null) {
-                    rvList.setAdapter(new SeachTopicAdapter(SearchTopicActivity.this, list));
+                    SeachTopicAdapter adapter = new SeachTopicAdapter(SearchTopicActivity.this, list);
+                    rvList.setAdapter(adapter);
+                    adapter.setOnItemClickListener(new SeachTopicAdapter.OnItemClickListener() {
+                        @Override
+                        public void onClick(TopicEntity topicEntity) {
+                            Intent intent = new Intent(SearchTopicActivity.this, TopicDetailActivity.class);
+                            intent.putExtra("entity", topicEntity);
+                            startActivity(intent);
+                        }
+                    });
                     rvList.setLayoutManager(new LinearLayoutManager(SearchTopicActivity.this));
                     if (list.size() == 0) {
                         new AlertDialog.Builder(SearchTopicActivity.this)
