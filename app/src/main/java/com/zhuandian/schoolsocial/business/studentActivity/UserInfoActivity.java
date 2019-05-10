@@ -50,7 +50,7 @@ public class UserInfoActivity extends BaseActivity {
             userEntity.setNikeName(etNickName.getText().toString());
             userEntity.setUserInfo(etUserDesc.getText().toString());
             userEntity.setPassword(edPassword.getText().toString());
-            userEntity.update(new UpdateListener() {
+             userEntity.update(new UpdateListener() {
                 @Override
                 public void done(BmobException e) {
                     if (e == null) {
