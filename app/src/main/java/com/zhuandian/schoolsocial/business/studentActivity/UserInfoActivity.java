@@ -46,7 +46,7 @@ public class UserInfoActivity extends BaseActivity {
 
     @OnClick(R.id.tv_submit)
     public void onClick() {
-        if (TextUtils.isEmpty(etNickName.getText().toString()) || TextUtils.isEmpty(etUserDesc.getText().toString())) {
+        if (!TextUtils.isEmpty(etNickName.getText().toString()) || !TextUtils.isEmpty(etUserDesc.getText().toString())) {
             userEntity.setNikeName(etNickName.getText().toString());
             userEntity.setUserInfo(etUserDesc.getText().toString());
             userEntity.setPassword(edPassword.getText().toString());
@@ -58,6 +58,8 @@ public class UserInfoActivity extends BaseActivity {
                     }
                 }
             });
+        } else {
+            Toast.makeText(UserInfoActivity.this, "昵称跟描述为必填项...", Toast.LENGTH_SHORT).show();
         }
     }
 }
