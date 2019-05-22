@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_bottom_tab"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/white"
+    android:paddingBottom="5dp"
+    android:paddingTop="10dp">
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_home_tab"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_home"-->
+            <!--android:layout_width="26dp"-->
+            <!--android:layout_height="26dp"-->
+            <!--android:src="@drawable/ic_tab_home_normal" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_home"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="首页" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_manage_tab"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_manage"-->
+            <!--android:layout_width="26dp"-->
+            <!--android:layout_height="26dp"-->
+            <!--android:src="@drawable/ic_tab_manage_normal" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_manage"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="教务" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_social_tab"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_social"-->
+            <!--android:layout_width="26dp"-->
+            <!--android:layout_height="26dp"-->
+            <!--android:src="@drawable/ic_social" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_social"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="社交" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_news_tab"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_news"-->
+            <!--android:layout_width="26dp"-->
+            <!--android:layout_height="26dp"-->
+            <!--android:src="@drawable/ic_tab_news_normal" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_news"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="快讯" />-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_mine_tab"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_mine"-->
+            <!--android:layout_width="26dp"-->
+            <!--android:layout_height="26dp"-->
+            <!--android:src="@drawable/ic_tab_mine_normal" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_mine"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:text="我的" />-->
+    <!--</LinearLayout>-->
+
+
+</LinearLayout>

@@ -2,9 +2,8 @@
     android:shape="rectangle"
     android:useLevel="false">
 
-    <solid android:color="#26936af8"
-        />
-<corners android:radius="25dp"/>
+    <solid android:color="#26936af8" />
+    <corners android:radius="25dp" />
     <size
         android:width="15dp"
         android:height="15dp" />

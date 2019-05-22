@@ -30,7 +30,7 @@
         android:layout_marginBottom="5dp"
         android:background="@color/colorPrimary"
         android:gravity="center"
-        android:text="搜索话题"
+        android:text="搜索公告"
         android:textColor="#fff" />
 
     <TextView
