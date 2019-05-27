@@ -1,5 +1,6 @@
 package com.zhuandian.schoolsocial.business.chat.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -148,6 +149,10 @@ public class ContactFragment extends ParentWithNaviFragment {
                     BmobIMConversation conversationEntrance = BmobIM.getInstance().startPrivateConversation(info, null);
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("c", conversationEntrance);
+//                    Intent intent = new Intent(getActivity(),ChatActivity.class);
+//                    intent.putExtra("c",bundle);
+//                    startActivity(intent);
+
                     startActivity(ChatActivity.class, bundle);
                 }
             }

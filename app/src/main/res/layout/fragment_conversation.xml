@@ -10,7 +10,7 @@
     <include
         android:id="@+id/ll"
         layout="@layout/include_navi"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
     <FrameLayout
         android:layout_width="match_parent"

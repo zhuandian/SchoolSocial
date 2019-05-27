@@ -125,6 +125,9 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
         setContentView(R.layout.activity_chat);
 
         BmobIMConversation conversationEntrance = (BmobIMConversation) getIntent().getSerializableExtra("c");
+        if (conversationEntrance == null) {
+            conversationEntrance = (BmobIMConversation) getBundle().getSerializable("c");
+        }
         //TODO 消息：5.1、根据会话入口获取消息管理，聊天页面
         mConversationManager = BmobIMConversation.obtain(BmobIMClient.getInstance(), conversationEntrance);
         initNaviView();

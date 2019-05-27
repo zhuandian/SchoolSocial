@@ -69,6 +69,7 @@ public class UserInfoActivity extends ParentWithNaviActivity {
             btn_add_friend.setVisibility(View.VISIBLE);
             btn_chat.setVisibility(View.VISIBLE);
         }
+        btn_chat.setVisibility(View.GONE);
         //构造聊天方的用户信息:传入用户id、用户名和用户头像三个参数
         info = new BmobIMUserInfo(user.getObjectId(), user.getUsername(), user.getAvatar());
         //加载头像
