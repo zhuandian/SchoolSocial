@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.zhuandian.schoolsocial.base.BaseActivity;
 import com.zhuandian.schoolsocial.business.chat.bean.User;
+import com.zhuandian.schoolsocial.business.chat.db.NewFriendManager;
 import com.zhuandian.schoolsocial.business.chat.event.RefreshEvent;
 import com.zhuandian.schoolsocial.business.chat.ui.ChatActivity;
 import com.zhuandian.schoolsocial.business.chat.util.IMMLeaks;
@@ -27,6 +29,7 @@ import com.zhuandian.schoolsocial.utils.GlideImageLoader;
 import com.zhuandian.schoolsocial.utils.MyLocationListener;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +39,11 @@ import butterknife.OnClick;
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMUserInfo;
 import cn.bmob.newim.core.ConnectionStatus;
+import cn.bmob.newim.event.MessageEvent;
+import cn.bmob.newim.event.OfflineMessageEvent;
 import cn.bmob.newim.listener.ConnectListener;
 import cn.bmob.newim.listener.ConnectStatusChangeListener;
+import cn.bmob.newim.notification.BmobNotificationManager;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 
@@ -190,5 +196,71 @@ public class MainActivity extends BaseActivity {
                 break;
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //每次进来应用都检查会话和好友请求的情况
+        checkRedPoint();
+        //进入应用后，通知栏应取消
+        BmobNotificationManager.getInstance(this).cancelNotification();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //清理导致内存泄露的资源
+        BmobIM.getInstance().clear();
+    }
+
+    /**
+     * 注册消息接收事件
+     *
+     * @param event
+     */
+    //TODO 消息接收：8.3、通知有在线消息接收
+    @Subscribe
+    public void onEventMainThread(MessageEvent event) {
+        checkRedPoint();
+    }
+
+    /**
+     * 注册离线消息接收事件
+     *
+     * @param event
+     */
+    //TODO 消息接收：8.4、通知有离线消息接收
+    @Subscribe
+    public void onEventMainThread(OfflineMessageEvent event) {
+        checkRedPoint();
+    }
+
+    /**
+     * 注册自定义消息接收事件
+     *
+     * @param event
+     */
+    //TODO 消息接收：8.5、通知有自定义消息接收
+    @Subscribe
+    public void onEventMainThread(RefreshEvent event) {
+        checkRedPoint();
+    }
+
+    /**
+     *
+     */
+    private void checkRedPoint() {
+//        //TODO 会话：4.4、获取全部会话的未读消息数量
+//        int count = (int) BmobIM.getInstance().getAllUnReadCount();
+//        if (count > 0) {
+//            iv_conversation_tips.setVisibility(View.VISIBLE);
+//        } else {
+//            iv_conversation_tips.setVisibility(View.GONE);
+//        }
+//        //TODO 好友管理：是否有好友添加的请求
+//        if (NewFriendManager.getInstance(this).hasNewFriendInvitation()) {
+//            iv_contact_tips.setVisibility(View.VISIBLE);
+//        } else {
+//            iv_contact_tips.setVisibility(View.GONE);
+//        }
+    }
 }
