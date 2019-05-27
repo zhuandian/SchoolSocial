@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.adapter.PostListAdapter;
 import com.zhuandian.schoolsocial.base.BaseFragment;
+import com.zhuandian.schoolsocial.business.chat.ui.ChatActivity;
 import com.zhuandian.schoolsocial.entity.PostEntity;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.bmob.newim.BmobIM;
+import cn.bmob.newim.bean.BmobIMConversation;
+import cn.bmob.newim.bean.BmobIMUserInfo;
+import cn.bmob.newim.core.ConnectionStatus;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
@@ -113,6 +118,21 @@ public class HeartShareListFragment extends BaseFragment {
                         @Override
                         public void onItemLongClick(int pos) {
 
+                        }
+
+                        @Override
+                        public void onClicChat(PostEntity heartShareEntity) {
+                            if (BmobIM.getInstance().getCurrentStatus().getCode() != ConnectionStatus.CONNECTED.getCode()) {
+                                Toast.makeText(actitity, "IM服务器初始化失败，请重试...", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
+                            //会话：创建一个常态会话入口，陌生人聊天
+                            BmobIMUserInfo bmobIMUserInfo = new BmobIMUserInfo(heartShareEntity.getAuthor().getObjectId(), heartShareEntity.getAuthor().getUsername(), heartShareEntity.getAuthor().getAvatar());
+                            BmobIMConversation conversationEntrance = BmobIM.getInstance().startPrivateConversation(bmobIMUserInfo, null);
+                            Intent intent = new Intent(actitity, ChatActivity.class);
+                            intent.putExtra("c", conversationEntrance);
+                            startActivity(intent);
                         }
                     });
                 } else {

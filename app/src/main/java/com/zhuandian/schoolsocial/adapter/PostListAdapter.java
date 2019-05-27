@@ -37,6 +37,8 @@ public class PostListAdapter extends BaseAdapter<PostEntity, BaseViewHolder> {
     TextView content;
     @BindView(R.id.comment)
     TextView comment;
+    @BindView(R.id.tv_chat)
+    TextView tvChat;
     private ItemClickListener clickListener;
 
     public PostListAdapter(Context context, List<PostEntity> mDatas) {
@@ -83,6 +85,14 @@ public class PostListAdapter extends BaseAdapter<PostEntity, BaseViewHolder> {
                 return true;
             }
         });
+        tvChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (clickListener != null) {
+                    clickListener.onClicChat(heartShareEntity);
+                }
+            }
+        });
     }
 
 
@@ -125,10 +135,11 @@ public class PostListAdapter extends BaseAdapter<PostEntity, BaseViewHolder> {
     }
 
 
-
     public interface ItemClickListener {
         void onItemClick(PostEntity heartShareEntity);
 
         void onItemLongClick(int pos);
+
+        void onClicChat(PostEntity heartShareEntity);
     }
 }
