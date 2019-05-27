@@ -20,6 +20,7 @@ import com.zhuandian.schoolsocial.base.BaseActivity;
 import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.business.chat.db.NewFriendManager;
 import com.zhuandian.schoolsocial.business.chat.event.RefreshEvent;
+import com.zhuandian.schoolsocial.business.chat.model.UserModel;
 import com.zhuandian.schoolsocial.business.chat.ui.ChatActivity;
 import com.zhuandian.schoolsocial.business.chat.util.IMMLeaks;
 import com.zhuandian.schoolsocial.business.schoolNews.SchoolNewsActivity;
@@ -210,6 +211,9 @@ public class MainActivity extends BaseActivity {
         super.onDestroy();
         //清理导致内存泄露的资源
         BmobIM.getInstance().clear();
+        UserModel.getInstance().logout();
+        //TODO 连接：3.2、退出登录需要断开与IM服务器的连接
+        BmobIM.getInstance().disConnect();
     }
 
     /**
@@ -249,18 +253,18 @@ public class MainActivity extends BaseActivity {
      *
      */
     private void checkRedPoint() {
-//        //TODO 会话：4.4、获取全部会话的未读消息数量
-//        int count = (int) BmobIM.getInstance().getAllUnReadCount();
-//        if (count > 0) {
+        //TODO 会话：4.4、获取全部会话的未读消息数量
+        int count = (int) BmobIM.getInstance().getAllUnReadCount();
+        if (count > 0) {
 //            iv_conversation_tips.setVisibility(View.VISIBLE);
-//        } else {
+        } else {
 //            iv_conversation_tips.setVisibility(View.GONE);
-//        }
-//        //TODO 好友管理：是否有好友添加的请求
-//        if (NewFriendManager.getInstance(this).hasNewFriendInvitation()) {
+        }
+        //TODO 好友管理：是否有好友添加的请求
+        if (NewFriendManager.getInstance(this).hasNewFriendInvitation()) {
 //            iv_contact_tips.setVisibility(View.VISIBLE);
-//        } else {
+        } else {
 //            iv_contact_tips.setVisibility(View.GONE);
-//        }
+        }
     }
 }
