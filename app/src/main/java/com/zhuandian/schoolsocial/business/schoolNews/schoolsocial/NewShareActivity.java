@@ -7,8 +7,8 @@ import android.widget.Toast;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.entity.PostEntity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,7 +27,7 @@ public class NewShareActivity extends BaseActivity {
     @BindView(R.id.heart_content)
     EditText edContent;
     private String anonymousType;
-    private UserEntity user;
+    private User user;
 
     @Override
     protected int getLayoutId() {
@@ -38,7 +38,7 @@ public class NewShareActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
-        user = BmobUser.getCurrentUser(UserEntity.class);
+        user = BmobUser.getCurrentUser(User.class);
     }
 
 

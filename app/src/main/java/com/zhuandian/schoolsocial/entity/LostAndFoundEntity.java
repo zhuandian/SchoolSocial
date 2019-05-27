@@ -1,5 +1,7 @@
 package com.zhuandian.schoolsocial.entity;
 
+import com.zhuandian.schoolsocial.business.chat.bean.User;
+
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -11,7 +13,7 @@ public class LostAndFoundEntity extends BmobObject {
     public static int FOUND = 2;//捡到
     private String title;
     private String content;
-    private UserEntity userEntity;
+    private User userEntity;
     private String showName;
     private int type;
     //TODO 联系方式，暂不定义
@@ -32,11 +34,11 @@ public class LostAndFoundEntity extends BmobObject {
         this.content = content;
     }
 
-    public UserEntity getUserEntity() {
+    public User getUserEntity() {
         return userEntity;
     }
 
-    public void setUserEntity(UserEntity userEntity) {
+    public void setUserEntity(User userEntity) {
         this.userEntity = userEntity;
     }
 

@@ -131,6 +131,7 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
         initSwipeLayout();
         initVoiceView();
         initBottomView();
+
     }
 
     private void initSwipeLayout() {
@@ -539,7 +540,7 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
     /**
      * 发送远程音频文件
      */
-    private void sendRemoteAudioMessage(){
+    private void sendRemoteAudioMessage() {
         //TODO 发送消息：6.5、发送本地音频文件消息
         BmobIMAudioMessage audio = new BmobIMAudioMessage();
         audio.setRemoteUrl("此处替换为你远程的音频文件地址");
@@ -558,7 +559,7 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
     /**
      * 发送远程视频文件
      */
-    private void sendRemoteVideoMessage(){
+    private void sendRemoteVideoMessage() {
         //TODO 发送消息：6.7、发送本地音频文件消息
         BmobIMAudioMessage audio = new BmobIMAudioMessage();
         audio.setRemoteUrl("此处替换为你远程的音频文件地址");
@@ -573,6 +574,7 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
         BmobIMFileMessage file = new BmobIMFileMessage("此处替换为你本地的文件地址");
         mConversationManager.sendMessage(file, listener);
     }
+
     /**
      * 发送远程文件
      */
@@ -582,6 +584,7 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
         file.setRemoteUrl("此处替换为你远程的文件地址");
         mConversationManager.sendMessage(file, listener);
     }
+
     /**
      * 发送语音消息
      *
@@ -675,7 +678,6 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
     private void scrollToBottom() {
         layoutManager.scrollToPositionWithOffset(adapter.getItemCount() - 1, 0);
     }
-
 
 
     //TODO 消息接收：8.2、单个页面的自定义接收器

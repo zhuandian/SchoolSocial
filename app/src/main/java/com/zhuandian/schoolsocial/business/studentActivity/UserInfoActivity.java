@@ -1,6 +1,5 @@
 package com.zhuandian.schoolsocial.business.studentActivity;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -8,12 +7,10 @@ import android.widget.Toast;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
@@ -29,7 +26,7 @@ public class UserInfoActivity extends BaseActivity {
     TextView tvSubmit;
     @BindView(R.id.et_user_password)
     EditText edPassword;
-    private UserEntity userEntity;
+    private User userEntity;
 
     @Override
     protected int getLayoutId() {
@@ -38,7 +35,7 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
-        userEntity = BmobUser.getCurrentUser(UserEntity.class);
+        userEntity = BmobUser.getCurrentUser(User.class);
         etNickName.setText(userEntity.getNikeName());
         etUserDesc.setText(userEntity.getUserInfo());
     }

@@ -17,9 +17,9 @@ import android.widget.Toast;
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.adapter.UserCommentAdapter;
 import com.zhuandian.schoolsocial.base.BaseActivity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.entity.CommentEntity;
 import com.zhuandian.schoolsocial.entity.PostEntity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -167,7 +167,7 @@ public class HeartShareItemActivity extends BaseActivity implements View.OnTouch
     private void submitUserComment() {
         String userComment = commentContent.getText().toString();  //得到用户输入框的评论内容
         if (!"".equals(userComment)) {
-            UserEntity user = BmobUser.getCurrentUser(UserEntity.class);  //得到当前用户
+            User user = BmobUser.getCurrentUser(User.class);  //得到当前用户
             PostEntity post = new PostEntity();   //当前动态内容
             post.setObjectId(mDatas.getObjectId());  //得到当前的动态的id，与评论建立关联
             final CommentEntity commentEntity = new CommentEntity();

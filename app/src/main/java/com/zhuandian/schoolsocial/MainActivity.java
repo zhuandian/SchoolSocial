@@ -4,32 +4,42 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.orhanobut.logger.Logger;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.zhuandian.schoolsocial.base.BaseActivity;
-import com.zhuandian.schoolsocial.business.college.CollegeActivity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
+import com.zhuandian.schoolsocial.business.chat.event.RefreshEvent;
+import com.zhuandian.schoolsocial.business.chat.ui.ChatActivity;
+import com.zhuandian.schoolsocial.business.chat.util.IMMLeaks;
 import com.zhuandian.schoolsocial.business.schoolNews.SchoolNewsActivity;
 import com.zhuandian.schoolsocial.business.studentActivity.StudentActivity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 import com.zhuandian.schoolsocial.utils.Constant;
 import com.zhuandian.schoolsocial.utils.GlideImageLoader;
 import com.zhuandian.schoolsocial.utils.MyLocationListener;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.newim.BmobIM;
+import cn.bmob.newim.bean.BmobIMUserInfo;
+import cn.bmob.newim.core.ConnectionStatus;
+import cn.bmob.newim.listener.ConnectListener;
+import cn.bmob.newim.listener.ConnectStatusChangeListener;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
 
 public class MainActivity extends BaseActivity {
     public LocationClient mLocationClient = null;
@@ -51,7 +61,7 @@ public class MainActivity extends BaseActivity {
     protected void setUpView() {
         initLocation();
         List<Integer> images = new ArrayList<>();
-        UserEntity userEntity = BmobUser.getCurrentUser(UserEntity.class);
+        User userEntity = BmobUser.getCurrentUser(User.class);
         if (Constant.ROLE_ID == 1) {  //模拟用户type类型1登陆成功之后首页展示的内容
             images.add(R.drawable.ic_release_lost_and_found_head_bg);
             images.add(R.drawable.ic_release_lost_and_found_head_bg);
@@ -75,6 +85,41 @@ public class MainActivity extends BaseActivity {
         //banner设置方法全部调用完毕时最后调用
         banner.start();
 
+        initChatSystem();
+    }
+
+    private void initChatSystem() {
+        final User user = BmobUser.getCurrentUser(User.class);
+        //TODO 连接：3.1、登录成功、注册成功或处于登录状态重新打开应用后执行连接IM服务器的操作
+        //判断用户是否登录，并且连接状态不是已连接，则进行连接操作
+        if (!TextUtils.isEmpty(user.getObjectId()) &&
+                BmobIM.getInstance().getCurrentStatus().getCode() != ConnectionStatus.CONNECTED.getCode()) {
+            BmobIM.connect(user.getObjectId(), new ConnectListener() {
+                @Override
+                public void done(String uid, BmobException e) {
+                    if (e == null) {
+                        //服务器连接成功就发送一个更新事件，同步更新会话及主页的小红点
+                        //TODO 会话：2.7、更新用户资料，用于在会话页面、聊天页面以及个人信息页面显示
+                        BmobIM.getInstance().
+                                updateUserInfo(new BmobIMUserInfo(user.getObjectId(),
+                                        user.getUsername(), user.getAvatar()));
+                        EventBus.getDefault().post(new RefreshEvent());
+                    } else {
+                        Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            //TODO 连接：3.3、监听连接状态，可通过BmobIM.getInstance().getCurrentStatus()来获取当前的长连接状态
+            BmobIM.getInstance().setOnConnectStatusChangeListener(new ConnectStatusChangeListener() {
+                @Override
+                public void onChange(ConnectionStatus status) {
+                    Toast.makeText(MainActivity.this, status.getMsg(), Toast.LENGTH_SHORT).show();
+                    Logger.i(BmobIM.getInstance().getCurrentStatus().getMsg());
+                }
+            });
+        }
+        //解决leancanary提示InputMethodManager内存泄露的问题
+        IMMLeaks.fixFocusedViewLeak(getApplication());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -111,7 +156,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_student_activity, R.id.tv_school_news, R.id.tv_college})
+    @OnClick({R.id.tv_student_activity, R.id.tv_school_news, R.id.tv_chat})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_student_activity:
@@ -120,8 +165,8 @@ public class MainActivity extends BaseActivity {
             case R.id.tv_school_news:
                 startActivity(new Intent(MainActivity.this, SchoolNewsActivity.class));
                 break;
-            case R.id.tv_college:
-                startActivity(new Intent(MainActivity.this, CollegeActivity.class));
+            case R.id.tv_chat:
+                startActivity(new Intent(MainActivity.this, com.zhuandian.schoolsocial.business.chat.ui.MainActivity.class));
                 break;
         }
     }

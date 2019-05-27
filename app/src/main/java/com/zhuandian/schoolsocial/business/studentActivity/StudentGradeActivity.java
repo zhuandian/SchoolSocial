@@ -5,8 +5,8 @@ import android.widget.TextView;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.entity.PersonalScoreEntity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class StudentGradeActivity extends BaseActivity {
                     String scores = list.get(0).getScores();
                     String[] scoresArray = scores.split("-");
                     StringBuilder stringBuilder = new StringBuilder();
-                    stringBuilder.append(BmobUser.getCurrentUser(UserEntity.class).getUsername() + "\n");
+                    stringBuilder.append(BmobUser.getCurrentUser(User.class).getUsername() + "\n");
                     for (String score : scoresArray) {
                         stringBuilder.append(score)
                                 .append("\n");

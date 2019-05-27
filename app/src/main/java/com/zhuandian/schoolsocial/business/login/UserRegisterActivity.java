@@ -3,16 +3,13 @@ package com.zhuandian.schoolsocial.business.login;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -52,7 +49,7 @@ public class UserRegisterActivity extends BaseActivity {
         if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(passWord)) {
             Toast.makeText(this, "请完善注册信息...", Toast.LENGTH_SHORT).show();
         } else {
-            UserEntity userEntity = new UserEntity();
+            User userEntity = new User();
             userEntity.setUsername(userName);
             userEntity.setPassword(passWord);
             userEntity.signUp(new SaveListener<Object>() {

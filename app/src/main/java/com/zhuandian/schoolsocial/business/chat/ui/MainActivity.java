@@ -115,7 +115,7 @@ public class MainActivity extends BaseActivity {
         conversationFragment = new ConversationFragment();
         setFragment = new SetFragment();
         contactFragment = new ContactFragment();
-        fragments = new Fragment[]{conversationFragment, contactFragment, setFragment};
+        fragments = new Fragment[]{conversationFragment, contactFragment};
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, conversationFragment).
                 add(R.id.fragment_container, contactFragment)

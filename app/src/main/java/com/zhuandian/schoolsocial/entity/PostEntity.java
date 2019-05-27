@@ -1,5 +1,7 @@
 package com.zhuandian.schoolsocial.entity;
 
+import com.zhuandian.schoolsocial.business.chat.bean.User;
+
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -11,7 +13,7 @@ public class PostEntity extends BmobObject {
 
     private String username;
     private String content;
-    private UserEntity author;       //发布动态的作者，一对一的思想
+    private User author;       //发布动态的作者，一对一的思想
     private int commentCount;
 
     public String getUsername() {
@@ -30,11 +32,11 @@ public class PostEntity extends BmobObject {
         this.content = content;
     }
 
-    public UserEntity getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserEntity author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 

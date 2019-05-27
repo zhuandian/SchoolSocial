@@ -1,18 +1,15 @@
 package com.zhuandian.schoolsocial.business.college;
 
-import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
-import com.zhuandian.schoolsocial.business.schoolNews.StudentSuQiuActivity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.entity.FeedBackEntity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -42,7 +39,7 @@ public class XueShengChuActivity extends BaseActivity {
 
         FeedBackEntity feedBackEntity = new FeedBackEntity();
 
-        feedBackEntity.setUserName(BmobUser.getCurrentUser(UserEntity.class).getNikeName());
+        feedBackEntity.setUserName(BmobUser.getCurrentUser(User.class).getNikeName());
         feedBackEntity.setUserFeedBack(etFeedback.getText().toString());
         feedBackEntity.save(new SaveListener<String>() {
             @Override

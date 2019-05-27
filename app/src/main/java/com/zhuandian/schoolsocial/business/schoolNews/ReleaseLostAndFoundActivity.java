@@ -4,15 +4,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.entity.LostAndFoundEntity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 import com.zhuandian.schoolsocial.utils.Constant;
 
 import butterknife.BindView;
@@ -40,7 +39,7 @@ public class ReleaseLostAndFoundActivity extends BaseActivity {
     private String releaseTitle;
     private String releaseContent;
     private int releaseType = LostAndFoundEntity.LOST; //默认类型为丢失物品
-    private UserEntity currentUser;
+    private User currentUser;
 
     @Override
     public int getLayoutId() {
@@ -71,7 +70,7 @@ public class ReleaseLostAndFoundActivity extends BaseActivity {
     private void commitRelease() {
         releaseTitle = edTitle.getText().toString();
         releaseContent = edContent.getText().toString();
-        currentUser = BmobUser.getCurrentUser(UserEntity.class);
+        currentUser = BmobUser.getCurrentUser(User.class);
         if (releaseTitle.equals("") || releaseContent.equals("")) {
 
             new AlertDialog.Builder(this).setTitle("请完善信息")

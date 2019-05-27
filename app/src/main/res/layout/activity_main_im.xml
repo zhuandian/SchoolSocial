@@ -23,27 +23,27 @@
                 android:drawableTop="@drawable/tab_message_btn"
                 android:gravity="center"
                 android:onClick="onTabSelect"
-                android:paddingBottom="2dip"
                 android:paddingTop="7dip"
+                android:paddingBottom="2dip"
                 android:scaleType="matrix"
                 android:text="@string/main_tab_recent"
                 android:textColor="@drawable/tab_textcolor"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/iv_conversation_tips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="7dp"
+                android:layout_marginRight="30dp"
                 android:background="@mipmap/msg_tips"
                 android:contentDescription="@string/action_settings"
                 android:gravity="center"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="12sp"
-                android:visibility="visible"/>
+                android:visibility="visible" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -58,27 +58,27 @@
                 android:drawableTop="@drawable/tab_contact_btn"
                 android:gravity="center"
                 android:onClick="onTabSelect"
-                android:paddingBottom="2dip"
                 android:paddingTop="7dip"
+                android:paddingBottom="2dip"
                 android:scaleType="matrix"
                 android:text="@string/main_tab_contact"
                 android:textColor="@drawable/tab_textcolor"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
             <ImageView
                 android:id="@+id/iv_contact_tips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="30dp"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="7dp"
+                android:layout_marginRight="30dp"
                 android:background="@mipmap/msg_tips"
                 android:contentDescription="@string/action_settings"
                 android:gravity="center"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="12sp"
-                android:visibility="visible"/>
+                android:visibility="visible" />
         </RelativeLayout>
 
         <TextView
@@ -90,12 +90,13 @@
             android:drawableTop="@drawable/tab_set_btn"
             android:gravity="center"
             android:onClick="onTabSelect"
-            android:paddingBottom="2dip"
             android:paddingTop="7dip"
+            android:paddingBottom="2dip"
             android:scaleType="matrix"
             android:text="@string/mian_tab_set"
             android:textColor="@drawable/tab_textcolor"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
@@ -112,6 +113,6 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/line"/>
+        android:layout_above="@id/line" />
 
 </RelativeLayout>

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.zhuandian.schoolsocial.MainActivity;
 import com.zhuandian.schoolsocial.R;
 import com.zhuandian.schoolsocial.base.BaseActivity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
+import com.zhuandian.schoolsocial.business.chat.bean.User;
 import com.zhuandian.schoolsocial.utils.Constant;
 
 import butterknife.BindView;
@@ -59,12 +59,12 @@ public class LoginActivity extends BaseActivity {
         if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(passWord)) {
             Toast.makeText(this, "请完善登陆信息...", Toast.LENGTH_SHORT).show();
         } else {
-            UserEntity userEntity = new UserEntity();
+            User userEntity = new User();
             userEntity.setUsername(userName);
             userEntity.setPassword(passWord);
-            userEntity.login(new SaveListener<UserEntity>() {
+            userEntity.login(new SaveListener<User>() {
                 @Override
-                public void done(UserEntity userEntity, BmobException e) {
+                public void done(User userEntity, BmobException e) {
                     if (e == null) {
                         Constant.ROLE_ID = userEntity.getRoleId();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));

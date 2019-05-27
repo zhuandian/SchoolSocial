@@ -2,7 +2,6 @@ package com.zhuandian.schoolsocial.adapter;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,7 +11,6 @@ import com.zhuandian.schoolsocial.base.BaseViewHolder;
 import com.zhuandian.schoolsocial.business.schoolNews.schoolsocial.MyUtils;
 import com.zhuandian.schoolsocial.entity.CommentEntity;
 import com.zhuandian.schoolsocial.entity.PostEntity;
-import com.zhuandian.schoolsocial.entity.UserEntity;
 
 import java.util.List;
 
